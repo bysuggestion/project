@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="dao.use.ResourceDao"/>
+<fullyQualifiedTypeName name="bean.resourceBean"/>
+<fullyQualifiedTypeName name="bll.ResourceService"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="dao.use.DepartmentDao"/>
+<fullyQualifiedTypeName name="bean.taskBean"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+</qualifiedTypeNameHistroy>

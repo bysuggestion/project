@@ -1,0 +1,10 @@
+INDEX VERSION 1.3+F:\wxl\大学\大四上\project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1184450923.index
+1900539239.index
+4155091245.index
+3737955621.index
+2844348614.index
+3581163120.index
+4243187414.index
+1779309279.index
+559138702.index

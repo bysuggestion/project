@@ -1,0 +1,66 @@
+package bean;
+
+import java.sql.Date;
+
+public class taskBean {
+	private Integer taskId;
+	private Integer workId;
+	private String taskName;
+	private Integer beforeId;
+	private Integer costT;
+	private Date taskBeginTime;
+	private Date taskFinalTime;
+	
+	 public Integer getWorkId() {
+			return workId;
+		}
+		public void setWorkId(Integer workId) {
+			this.workId = workId;
+		}
+	
+
+	 public Integer getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(Integer taskId) {
+		this.taskId = taskId;
+	}
+	 public String getTaskName() {
+		return taskName;
+	}
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+	public Integer getBeforeId() {
+		return beforeId;
+	}
+	public void setBeforeId(Integer beforeId) {
+		this.beforeId = beforeId;
+	}
+
+	public Integer getCostT() {
+		return costT;
+	}
+	public void setCostT(Integer costT) {
+		this.costT = costT;
+	}
+	public Date getTaskBeginTime() {
+		return taskBeginTime;
+	}
+	public void setTaskBeginTime(Date taskBeginTime) {
+		this.taskBeginTime = taskBeginTime;
+	}
+	public Date getTaskFinalTime() {
+		return taskFinalTime;
+	}
+	public void setWorkFinalTime(Date taskFinalTime) {
+		this.taskFinalTime = taskFinalTime;
+	}
+
+	
+
+
+	
+
+
+}

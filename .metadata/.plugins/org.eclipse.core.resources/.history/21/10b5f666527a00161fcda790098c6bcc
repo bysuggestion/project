@@ -1,0 +1,53 @@
+package dao.use;
+
+import java.sql.SQLException;
+import java.util.List;
+
+
+import bean.workBean;
+import dao.common.*;
+public class WorkDao {
+	private DbHelper ct;
+	public WorkDao() throws SQLException{ 
+		ct = new DbHelper();
+	}
+	public int  insert(workBean item) throws SQLException{
+		int workId;
+		workId=ct.insertAndReturnKey(
+				"INSERT INTO work(workName, workTime, workBeginTime,workFinalTime,userId) VALUES(?,?,?,?,?)",
+				item.getworkName(),
+				item.getWorkTime(),
+				item.getWorkBeginTime(),
+				item.getWorkFinalTime(),
+				item.getUserId());
+		
+		return workId;
+	}
+	/*public void update(workBean item) throws SQLException{
+		String sql = "UPDATE User SET loginName=?, password=?, email=? WHERE userId=?";
+		ct.updatePrepareSQL(sql, item.getLoginName(),item.getPassword(),item.getEmail(),item.getUserId());
+	}
+	public void delete(workBean item) throws SQLException{
+			String sql = "DELETE FROM user WHERE userId=?";
+			ct.updatePrepareSQL(sql, item.getUserId());
+		}
+	public workBean query(String loginName, String password) throws SQLException{
+		String sql = "SELECT * FROM user WHERE loginName = ? AND password = ? ";
+		return ct.get(workBean.class, sql, DbHelper.parseSmap(workBean.class, "userId", "loginName", "password", "email"), loginName, password);
+	}
+
+	public workBean findById(int id) throws SQLException {
+		String sql = "SELECT * FROM user WHERE userId=?";
+		return ct.get(workBean.class, sql, DbHelper.parseSmap(workBean.class, "userId", "loginName", "password", "email"), id);
+		
+	}
+	public List<workBean> query() throws SQLException {
+		String sql = "SELECT * FROM user";
+		return ct.find(sql,workBean.class,DbHelper.parseSmap(workBean.class,  "userId", "loginName", "password", "email"));
+	}*/
+	public List<workBean> query(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+

@@ -1,0 +1,94 @@
+package bll;
+
+
+
+import dao.use.TaskDao;
+import dao.use.UserDao;
+import dao.use.WorkDao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import bean.*;
+public class workService {
+
+
+	/*		public workBean login(String loginName, String pwd){
+				try {
+					return new WorkDao().query(loginName, pwd);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				return null;
+			}*/
+
+			public int add(workBean item)  {
+		
+					try {
+						return new WorkDao().insert(item);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					return 0;
+					
+			
+				
+			
+			}
+		/*	public void edit(workBean item) {
+				try {
+					  new WorkDao().update(item);
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			}
+			public void delete(workBean item) {
+				try {
+					  new WorkDao().delete(item);
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			}
+			public List<workBean> find(){
+				try {
+					return new WorkDao().query();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				return null;
+			}
+
+			public workBean findById(int id) {
+				try {
+					return new WorkDao().findById(id);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();return null;
+				}
+			} */
+
+			public List<workBean> find(int userId) {
+				try {
+					return new WorkDao().query(userId);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return null;
+			}
+		
+
+	}
+
+

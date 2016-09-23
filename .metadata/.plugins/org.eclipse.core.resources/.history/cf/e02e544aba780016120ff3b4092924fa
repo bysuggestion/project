@@ -1,0 +1,90 @@
+package dao.use;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import bean.taskBean;
+import bean.userBean;
+import dao.common.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.common.DbHelper;
+import dao.common.IConnectionProvider;
+import dao.common.JdbcProvider;
+
+
+public class TaskDao {
+
+	private DbHelper ct;
+	public TaskDao() throws SQLException{ 
+		ct = new DbHelper();
+	}
+
+	public int insert(taskBean item) throws SQLException{
+		int taskId;
+		taskId=ct.insertAndReturnKey(
+				"INSERT INTO task(taskName, beforeId, taskBeginTime,taskFinalTime,workId) VALUES(?,?,?,?,?)",
+				item.getTaskName(),
+				item.getBeforeId(),
+				item.getTaskBeginTime(),
+				item.getTaskFinalTime(),
+				item.getWorkId());
+		return taskId;	}
+
+	public void delete(taskBean item) throws SQLException{
+			String sql = "DELETE FROM task WHERE taskId=?";
+			ct.updatePrepareSQL(sql, item.getTaskId());
+		}
+	public taskBean query(String loginName, String password) throws SQLException{
+		String sql = "SELECT * FROM resource WHERE loginName = ? AND password = ? ";
+		return ct.get(taskBean.class, sql, DbHelper.parseSmap(taskBean.class, "resourceId", "loginName", "password", "email"), loginName, password);
+	}
+
+	public void insertArr(taskBean item) throws SQLException {
+		ct.insertAndReturnKey(
+				"INSERT INTO arrange(taskId, resourceNo, resourceId,departmentId) VALUES(?,?,?,?)",
+				item.getTaskId(),
+				item.getResourceNo(),
+			item.getResourceId(),
+				item.getDepartmentId());
+		
+	}
+
+	public int findById(int id) {
+		
+			String sql = "SELECT * FROM resouce WHERE resourceId=?";
+			return (int) ct.findReturn(sql,id );
+			
+	
+	}
+
+
+	
+/*	public  List<taskBean> query(int workId) throws Exception {
+		String sql = "SELECT * FROM resource WHERE workId=?";
+		ResultSet rs = ct.query(sql,workId);
+		List<taskBean> items = new ArrayList<taskBean>();
+		while (rs.next()){
+			taskBean item = new taskBean();
+			item.setTaskId(rs.getInt(1));
+			item.setTaskName(rs.getString(3));
+			item.setTaskNo(rs.getInt(4));
+			item.setWorkId(rs.getInt(2));
+			item.setCostR(rs.getInt(5));
+		
+			items.add(item);
+		}
+		
+		return items;
+		
+	}*/
+}
+
